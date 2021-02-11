@@ -33,7 +33,7 @@ def get_notes(query):
         return None
     log.info("正在查询文件...")
     # Load cache
-    fh = open('state', 'r')
+    fh = open('state.json', 'r')
     state = json.load(fh)
     keep.restore(state)
 
