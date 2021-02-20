@@ -9,7 +9,7 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 
-KEEP_ICON = os.path.dirname(os.path.abspath(__file__)) + '/icon.icns'
+KEEP_ICON = os.path.dirname(os.path.abspath(__file__)) + '/icon.png'
 
 
 def is_ascii(s):
@@ -23,7 +23,7 @@ def to_ascii(s):
     return ulabel.encode("ascii", "ignore")
 
 
-def get_notes(query):
+def get_notes(wf, query):
     import gkeepapi
     import json
 
@@ -51,6 +51,8 @@ def get_notes(query):
 
     result = []
     for note in notes:
+        f = open(wf.cachefile(note.server_id+".md"), "w")
+        f.write("#" + note.title + "\n\n" + note.text)
         result.append(note)
 
     if len(result) < 1:
@@ -66,7 +68,7 @@ def main(wf):
     query = args.query
 
     def cacheable_notes():
-        return get_notes(query)
+        return get_notes(wf, query)
 
     notes = wf.cached_data(query, cacheable_notes, max_age=3600*24)
 
@@ -84,7 +86,7 @@ def main(wf):
             title=note.title,
             subtitle=note.text,
             largetext=note.text,
-            quicklookurl="http://www.deanishe.net/alfred-workflow",
+            quicklookurl= wf.cachefile(note.server_id+".md"),
             arg='$$'.join([note.title, note.text,  tag,
                            "https://keep.google.com/#NOTE/" + note.server_id]),
             uid=note.server_id, valid=True, icon=KEEP_ICON)

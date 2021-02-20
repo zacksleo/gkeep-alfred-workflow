@@ -126,7 +126,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>gkeep</string>
+	<string>Google Keep</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -284,6 +284,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>delimiter</key>
+				<string>$$</string>
+				<key>trimarguments</key>
+				<true/>
+				<key>variableprefix</key>
+				<string>split</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.split</string>
+			<key>uid</key>
+			<string>D40C7651-8374-4015-80AF-58EC2A0F40A8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -333,23 +350,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>delimiter</key>
-				<string>$$</string>
-				<key>trimarguments</key>
-				<true/>
-				<key>variableprefix</key>
-				<string>split</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.split</string>
-			<key>uid</key>
-			<string>D40C7651-8374-4015-80AF-58EC2A0F40A8</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>autopaste</key>
 				<false/>
 				<key>clipboardtext</key>
@@ -363,6 +363,104 @@
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>865139BF-E571-47BB-BA06-D6DCC1865618</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>gkeep:login</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>正在登录···</string>
+				<key>script</key>
+				<string>nohup /usr/local/bin/python3 auth.py "{query}" &amp;</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string>/usr/local/bin/python3 auth.py</string>
+				<key>subtext</key>
+				<string>keep-login {username} {password}</string>
+				<key>title</key>
+				<string>登录 Google Keep</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>FBB73CB5-2957-4DE5-92AD-D2C26F7BA24D</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>gkeep:reload</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>正在刷新···</string>
+				<key>script</key>
+				<string>nohup /usr/local/bin/python3 reload.py &amp;</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string>/usr/local/bin/python3 auth.py</string>
+				<key>subtext</key>
+				<string>重新加载Google Keep</string>
+				<key>title</key>
+				<string>刷新 Google Keep</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>ADF404D2-C11E-4C78-B2A7-D6644D445C4C</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -388,9 +486,9 @@
 		<key>71147CF5-224C-4657-AF89-67232A97E270</key>
 		<dict>
 			<key>xpos</key>
-			<integer>90</integer>
+			<integer>65</integer>
 			<key>ypos</key>
-			<integer>305</integer>
+			<integer>435</integer>
 		</dict>
 		<key>865139BF-E571-47BB-BA06-D6DCC1865618</key>
 		<dict>
@@ -407,6 +505,13 @@
 			<integer>95</integer>
 			<key>ypos</key>
 			<integer>180</integer>
+		</dict>
+		<key>ADF404D2-C11E-4C78-B2A7-D6644D445C4C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>250</integer>
+			<key>ypos</key>
+			<integer>555</integer>
 		</dict>
 		<key>C0A51C94-15BC-47C8-96EE-8805328AE31D</key>
 		<dict>
@@ -432,11 +537,27 @@
 		<key>F66043AB-826C-444B-8C7A-BED4468694FB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>285</integer>
+			<integer>240</integer>
 			<key>ypos</key>
-			<integer>295</integer>
+			<integer>300</integer>
+		</dict>
+		<key>FBB73CB5-2957-4DE5-92AD-D2C26F7BA24D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>75</integer>
+			<key>ypos</key>
+			<integer>555</integer>
 		</dict>
 	</dict>
+	<key>variables</key>
+	<dict>
+		<key>http_proxy</key>
+		<string>http://127.0.0.1:1087</string>
+		<key>https_proxy</key>
+		<string>http://127.0.0.1:1087</string>
+	</dict>
+	<key>version</key>
+	<string></string>
 	<key>webaddress</key>
 	<string>zacksleo.top</string>
 </dict>
